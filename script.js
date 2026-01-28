@@ -3,6 +3,7 @@ const modal = document.getElementById("modal");
 const modalTitle = document.getElementById("modal-title");
 const modalInfo = document.getElementById("modal-info");
 const closeBtn = document.querySelector(".close");
+const modalIframe = document.getElementById("modal-iframe");
 
 const infoHoroscopos = {
     Aries: "Aries es un signo de fuego, valiente y lleno de energía.",
@@ -19,12 +20,15 @@ const infoHoroscopos = {
     Piscis: "Piscis es agua, soñador y empático."
 };
 
+
 horoscopos.forEach(h => {
     h.addEventListener("click", () => {
-        const signo = h.querySelector("h3").textContent;
+        const signo = h.querySelector("h3").textContent.trim();
 
         modalTitle.textContent = signo;
         modalInfo.textContent = infoHoroscopos[signo];
+        modalIframe.src = `https://es.wikipedia.org/wiki/${encodeURIComponent(signo)}`;
+
 
         modal.style.display = "flex";
     });
@@ -32,6 +36,7 @@ horoscopos.forEach(h => {
 
 closeBtn.addEventListener("click", () => {
     modal.style.display = "none";
+    modalIframe.src = "";
 });
 
 window.addEventListener("click", (e) => {

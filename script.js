@@ -19,6 +19,20 @@ const infoHoroscopos = {
     Acuario: "Acuario es aire, innovador y original.",
     Piscis: "Piscis es agua, soñador y empático."
 };
+const wikiPorSigno = {
+  "Aries": "Aries_(astrología)",
+  "Tauro": "Tauro_(astrología)",
+  "Géminis": "Géminis_(astrología)",
+  "Cáncer": "Cáncer_(astrología)",
+  "Leo": "Leo_(astrología)",
+  "Virgo": "Virgo_(astrología)",
+  "Libra": "Libra_(astrología)",
+  "Escorpio": "Escorpio_(astrología)",
+  "Sagitario": "Sagitario_(astrología)",
+  "Capricornio": "Capricornio_(astrología)",
+  "Acuario": "Acuario_(astrología)",
+  "Piscis": "Piscis_(astrología)"
+};
 
 
 horoscopos.forEach(h => {
@@ -27,7 +41,7 @@ horoscopos.forEach(h => {
 
         modalTitle.textContent = signo;
         modalInfo.textContent = infoHoroscopos[signo];
-        modalIframe.src = `https://es.wikipedia.org/wiki/${encodeURIComponent(signo)}`;
+        modalIframe.src = `https://es.wikipedia.org/wiki/${encodeURIComponent(wikiPorSigno[signo])}`;
 
 
         modal.style.display = "flex";
